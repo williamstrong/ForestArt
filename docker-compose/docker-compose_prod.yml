@@ -5,13 +5,6 @@ services:
     image: postgres:latest
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
-
-  web:
-    build: frontend
-    command: [ "yarn", "build" ]
-    volumes:
-      - ./frontend:/code
-
   server:
     build: nginx
     ports:
