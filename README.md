@@ -4,11 +4,11 @@ Website for Alexandra Forest's art portfolio.
 The current production site is [hosted here.](http://13.57.225.177)
 
 ## Service Statuses
-### Communication
+### [Communication](https://github.com/williamstrong/ForestArtCommunication)
 
 [![Build Status](https://travis-ci.com/williamstrong/ForestArtCommunication.svg?branch=master)](https://travis-ci.com/williamstrong/ForestArtCommunication)
 
-### WebUI
+### [WebUI](https://github.com/williamstrong/ForestArtWebUI)
 
 [![Build Status](https://travis-ci.com/williamstrong/ForestArtFrontEnd.svg?branch=master)](https://travis-ci.com/williamstrong/ForestArtFrontEnd)
 
