@@ -1,12 +1,9 @@
-[submodule "frontend"]
-	path = frontend
-	url = git@github.com:williamstrong/ForestArtFrontEnd.git
-[submodule "backend"]
-	path = backend
-	url = git@github.com:williamstrong/ForestArtBackEnd.git
 [submodule "communication"]
 	path = communication
 	url = git@github.com:williamstrong/ForestArtCommunication.git
 [submodule "image"]
 	path = image
 	url = git@github.com:williamstrong/ForestArtImage.git
+[submodule "webui"]
+	path = webui
+	url = https://github.com/williamstrong/ForestArtWebui
