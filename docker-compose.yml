@@ -6,12 +6,10 @@ services:
     ports:
       - 80:80
       - 443:443
-    volumes:
-      - ./frontend/dist:/var/www
   image:
     build: image
     env_file:
-      - api-secrets.env
+      - secrets.env
     command: ["gunicorn", "project.wsgi", "-b", "0.0.0.0:8000"]
     volumes:
       - ./image:/code
@@ -21,4 +19,4 @@ services:
     volumes:
       - ./communication:/code
   webui:
-    build: frontend
+    build: webui

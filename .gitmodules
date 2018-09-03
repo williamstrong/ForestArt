@@ -1,9 +1,9 @@
 [submodule "communication"]
 	path = communication
-	url = git@github.com:williamstrong/ForestArtCommunication.git
+	url = https://github.com/williamstrong/ForestArtCommunication
 [submodule "image"]
 	path = image
-	url = git@github.com:williamstrong/ForestArtImage.git
+	url = https://github.com/williamstrong/ForestArtImage
 [submodule "webui"]
 	path = webui
 	url = https://github.com/williamstrong/ForestArtWebui
