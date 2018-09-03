@@ -1,4 +1,7 @@
 # ForestArt
+
+[![Build Status](https://travis-ci.com/williamstrong/ForestArt.svg?branch=master)](https://travis-ci.com/williamstrong/ForestArt)
+
 Website for Alexandra Forest's art portfolio.
 
 The current production site is [hosted here.](http://13.57.225.177)
