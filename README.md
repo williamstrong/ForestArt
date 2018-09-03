@@ -13,7 +13,7 @@ The current production site is [hosted here.](http://13.57.225.177)
 
 ### [WebUI](https://github.com/williamstrong/ForestArtWebUI)
 
-[![Build Status](https://travis-ci.com/williamstrong/ForestArtFrontEnd.svg?branch=master)](https://travis-ci.com/williamstrong/ForestArtWebUI)
+[![Build Status](https://travis-ci.com/williamstrong/ForestArtWebUI.svg?branch=master)](https://travis-ci.com/williamstrong/ForestArtWebUI)
 
 ## Extra Resources
 
