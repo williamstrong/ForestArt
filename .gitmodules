@@ -6,4 +6,4 @@
 	url = https://github.com/williamstrong/ForestArtImage
 [submodule "webui"]
 	path = webui
-	url = https://github.com/williamstrong/ForestArtWebui
+	url = https://github.com/williamstrong/forestartwebui
