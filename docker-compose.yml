@@ -6,6 +6,9 @@ services:
     ports:
       - 80:80
       - 443:443
+    env_file:
+      - nginx/secrets.env
+    command: ["-a"]
   image:
     build: image
     env_file:
