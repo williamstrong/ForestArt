@@ -31,7 +31,7 @@ WORKDIR /code
 
 COPY entrypoint.sh /code
 
-ENTRYPOINT ["./entrypoint.sh"]
+CMD ["./entrypoint.sh"]
 
 EXPOSE 80
 EXPOSE 443
