@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  server:
+    image: localhost:5000/server
+    build: nginx
+    ports:
+      - 80:80
+      - 443:443
+    command: ["nginx", "-g", "daemon off;"]
