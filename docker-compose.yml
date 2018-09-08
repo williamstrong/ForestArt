@@ -2,6 +2,7 @@ version: '3'
 
 services:
   server:
+    image: localhost:5000/server
     build: nginx
     ports:
       - 80:80
@@ -9,6 +10,7 @@ services:
     env_file:
       - nginx/secrets.env
   image:
+    image: localhost:5000/image
     build: image
     env_file:
       - secrets.env
@@ -16,9 +18,11 @@ services:
     volumes:
       - ./image:/code
   communication:
+    image: localhost:5000/communication
     build: communication
     command: bundle exec rails s -p 3000 -b "0.0.0.0"
     volumes:
       - ./communication:/code
   webui:
+    image: localhost:5000/webui
     build: webui
