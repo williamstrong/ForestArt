@@ -19,13 +19,20 @@ install:
   - docker-compose run image python manage.py loaddata data/db.json
   - pip install -r tests/requirements.txt
 
+  - docker swarm init
+  - docker service create --detach=false --name registry --publish published=5000,target=5000 registry:2
+  - docker-compose push
+
 before_script:
-  - docker-compose up -d
-  - sleep 30
-  - docker-compose ps
-  - docker-compose --version
+  - docker stack deploy --compose-file docker-compose.yml forestart
+  - sleep 60
+  - docker stack ls
+  - docker service ls
+  - docker service logs forestart_server
+  - docker service logs forestart_image
+  - docker service logs forestart_communication
+  - docker service logs forestart_webui
   - ss -lntu
-  - docker-compose logs
 
 script:
   - pytest
