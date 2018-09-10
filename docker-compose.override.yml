@@ -1,8 +1,14 @@
 version: '3'
 
 services:
+  webui:
+    image: 127.0.0.1:5000/webui
+    build: webui
+    command: ["yarn", "start:dev"]
+    volumes:
+      - ./webui:/code
   server:
-    image: localhost:5000/server
+    image: 127.0.0.1:5000/server
     build: nginx
     ports:
       - 80:80
