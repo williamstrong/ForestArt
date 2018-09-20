@@ -14,3 +14,7 @@ services:
       - 80:80
       - 443:443
     command: ["nginx", "-g", "daemon off;"]
+    links:
+      - "webui:forestart_webui"
+      - "image:forestart_image"
+      - "communication:forestart_communication"
