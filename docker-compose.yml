@@ -2,25 +2,19 @@ version: '3'
 
 services:
   server:
-    image: 127.0.0.1:5000/server
-    build: nginx
+    image: williamstrong/forestartserver
     ports:
       - 80:80
       - 443:443
     env_file:
-      - nginx/secrets.env
+      - server.secrets.env
   image:
-    image: 127.0.0.1:5000/image
-    build: image
+    image: williamstrong/forestartimage
     env_file:
-      - secrets.env
+      - image.secrets.env
     command: ["gunicorn", "project.wsgi", "-b", "0.0.0.0:8000"]
-    volumes:
-      - ./image:/code
   communication:
-    image: 127.0.0.1:5000/communication
-    build: communication
+    image: williamstrong/forestartcommunication
     command: bundle exec rails s -p 3000 -b "0.0.0.0"
   webui:
-    image: 127.0.0.1:5000/webui
-    build: webui
+    image: williamstrong/forestartwebui
