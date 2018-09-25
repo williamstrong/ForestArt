@@ -7,3 +7,6 @@
 [submodule "webui"]
 	path = webui
 	url = https://github.com/williamstrong/forestartwebui
+[submodule "nginx"]
+	path = nginx
+	url = https://github.com/williamstrong/ForestArtServer
