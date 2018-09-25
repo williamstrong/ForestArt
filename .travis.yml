@@ -8,11 +8,11 @@ services:
   - docker
 
 install:
-  - echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" >> secrets.env
-  - echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" >> secrets.env
-  - echo "DEBUG=$DEBUG" >> secrets.env
-  - echo "SECRET_KEY=$SECRET_KEY" >> secrets.env
-  - echo "API_KEY=$API_KEY" >> nginx/secrets.env
+  - echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" >> image.secrets.env
+  - echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" >> image.secrets.env
+  - echo "DEBUG=$DEBUG" >> image.secrets.env
+  - echo "SECRET_KEY=$SECRET_KEY" >> image.secrets.env
+  - echo "API_KEY=$API_KEY" >> server.secrets.env
 
   - docker-compose build
   - docker-compose run image python manage.py migrate
