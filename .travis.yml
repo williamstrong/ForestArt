@@ -14,9 +14,7 @@ install:
   - echo "SECRET_KEY=$SECRET_KEY" >> image.secrets.env
   - echo "API_KEY=$API_KEY" >> server.secrets.env
 
-  - docker-compose build
-  - docker-compose run image python manage.py migrate
-  - docker-compose run image python manage.py loaddata data/db.json
+  - ./scripts/start_dev.sh -b
   - pip install -r tests/requirements.txt
 
 before_script:

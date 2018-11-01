@@ -2,20 +2,21 @@ version: '3'
 
 services:
   webui:
-    build: ./tmp/ForestArtWebUI
-    command: ["yarn", "start:dev"]
+    build: ./build/ForestArtWebUI
+    command: ["run-script", "start:dev"]
     volumes:
-      - ./tmp/ForestArtWebUI/src/:/code/src
+      - ./build/ForestArtWebUI/src/:/code/src
   communication:
-    build: ./tmp/ForestArtCommunication
+    build: ./build/ForestArtCommunication
     volumes:
-      - ./tmp/ForestArtCommunication/:/code
+      - ./build/ForestArtCommunication/:/code
+      - /code/tmp
   image:
-    build: ./tmp/ForestArtImage
+    build: ./build/ForestArtImage
     volumes:
-      - ./tmp/ForestArtImage/:/code
+      - ./build/ForestArtImage/:/code
   server:
-    build: ./tmp/ForestArtServer
+    build: ./build/ForestArtServer
     ports:
       - 80:80
       - 443:443
