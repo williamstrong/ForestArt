@@ -14,8 +14,9 @@ install:
   - echo "SECRET_KEY=$SECRET_KEY" >> image.secrets.env
   - echo "API_KEY=$API_KEY" >> server.secrets.env
 
-  - ./scripts/start_dev.sh -b
   - pip install -r tests/requirements.txt
+  - echo $(pip list)
+  - ./scripts/start_dev.sh -db
 
 before_script:
   - docker-compose up -d
