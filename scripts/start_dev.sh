@@ -3,13 +3,15 @@
 OPTIND=1
 
 function build {
+  "Building the Docker images and applying test data."
   cd $SCRIPT_DIR
-  docker-compose build
-  docker-compose run image python manage.py migrate
-  docker-compose run image python manage.py loaddata data/db.json
+  /usr/local/bin/docker-compose build
+  /usr/local/bin/docker-compose run image python manage.py migrate
+  /usr/local/bin/docker-compose run image python manage.py loaddata data/db.json
 }
 
 function clean {
+  echo "Cleaning the build directory."
   rm -rf "$BUILD_DIR"
 }
 
@@ -33,9 +35,15 @@ function check_directory {
   fi
 }
 
-function download {
+function clean_download {
   check_directory
+  clean
   mkdir -p $SCRIPT_DIR/../build $SCRIPT_DIR
+  download
+}
+
+function download {
+  echo "Downloading repositories."
   python3 $SCRIPT_DIR/download_repos.py $BUILD_DIR
 }
 
@@ -43,10 +51,14 @@ function show_help {
   echo "This is not useful now. Ask Will for help or read the script."
 }
 
+# This is the directory that the script is located in.
 SCRIPT_DIR=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+# If the build directory does not exist create it and set the BUILD_DIR variable.
+[ -d ${SCRIPT_DIR}/../build ] || mkdir ${SCRIPT_DIR}/../build
 BUILD_DIR=$( cd "$(dirname "${BASH_SOURCE[0]}")"/../build ; pwd -P )
 
-while getopts ":hmbruU" opt; do
+while getopts ":hmdbruU" opt; do
   case "$opt" in
     h)
       show_help
@@ -54,9 +66,13 @@ while getopts ":hmbruU" opt; do
       ;;
     m)
       # Checkout and build master if no work in stage
-      download
+      clean_download
       build
       exit 0
+      ;;
+    d)
+      #Download the images
+      download
       ;;
     b)
       #Build images from build dir

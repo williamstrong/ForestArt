@@ -21,6 +21,7 @@ def clone_modules(github_url, repo_list, base_dir):
             repo = Repo.clone_from(repo_url(github_url, repo), directory)
 
 if __name__ == '__main__':
+    print("Downloading repos...")
     github_url = "https://github.com/williamstrong/"
     repo_list = [
             "ForestArtWebUI",
